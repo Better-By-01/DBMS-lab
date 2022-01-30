@@ -1,0 +1,361 @@
+SQL> CREATE TABLE DEPOSIT_2005017(ACTNO VARCHAR2(5), CNAME VARCHAR2(20), BNAME VARCHAR2(20), AMOUNT NUMBER(8,2), ADATE DATE);
+
+Table created.
+
+SQL> DESC DEPOSIT_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ACTNO                                              VARCHAR2(5)
+ CNAME                                              VARCHAR2(20)
+ BNAME                                              VARCHAR2(20)
+ AMOUNT                                             NUMBER(8,2)
+ ADATE                                              DATE
+
+SQL> CREATE TABLE BRANCH_2005017(BNAME VARCHAR2(20), CITY VARCHAR2(20));
+
+Table created.
+
+SQL> DESC BRANCH_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> CREATE TABLE CUSTOMER_2005017(CNAME VARCHAR2(20), CITY VARCHAR2(20));
+
+Table created.
+
+SQL> DESC CUSTOMER_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> CREATE TABLE BORROW_2005017(LOANNO VARCHAR2(5), CNAME VARCHAR2(20), BNAME VARCHAR2(20), AMOUNT NUMBER(8,2));
+
+Table created.
+
+SQL> DESC BORROW_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOANNO                                             VARCHAR2(5)
+ CNAME                                              VARCHAR2(20)
+ BNAME                                              VARCHAR2(20)
+ AMOUNT                                             NUMBER(8,2)
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(100, 'ANIL', 'VRCE', 1000.00, '01-MAR-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(101, 'SUNIL', 'AJNI', 5000.00, '04-JAN-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOST_2005017 VALUES(102, 'RAHUL', 'KAROLBAGH', 3500.00, '17-NOV-95');
+INSERT INTO DEPOST_2005017 VALUES(102, 'RAHUL', 'KAROLBAGH', 3500.00, '17-NOV-95')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(102, 'RAHUL', 'KAROLBAGH', 3500.00, '17-NOV-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(103, 'MADHURI', 'CHANDNI', 1200.00, '17-DEC-95';
+INSERT INTO DEPOSIT_2005017 VALUES(103, 'MADHURI', 'CHANDNI', 1200.00, '17-DEC-95'
+                                                                                 *
+ERROR at line 1:
+ORA-00917: missing comma 
+
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(103, 'MADHURI', 'CHANDNI', 1200.00, '17-DEC-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(104, 'PRAMOD', 'MGROAD', 3000.00, '27-MAR-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT_2005017 VALUES(105, 'SANDIP', 'KAROLBAGH', 2000.00, '31-MAR-96');
+
+1 row created.
+
+SQL> SELECT * FROM DEPOSIT_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> INSERT INTO BRANCH_2005017 VALUES('VRCE', 'NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_2005017 VALUES('AJNI', 'NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_2005017 VALUES('KAROLBAGH', 'DELHI');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_2005017 VALUES('CHANDNI', 'DELHI');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH_2005017 VALUES('MGROAD', 'BANGALORE');
+
+1 row created.
+
+SQL> SELECT * FROM BRANCH_2005017;
+
+BNAME                CITY                                                       
+-------------------- --------------------                                       
+VRCE                 NAGPUR                                                     
+AJNI                 NAGPUR                                                     
+KAROLBAGH            DELHI                                                      
+CHANDNI              DELHI                                                      
+MGROAD               BANGALORE                                                  
+
+SQL> INSERT INTO CUSTOMER_2005017 VALUES('ANIL', 'CALCUTTA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER_2005017 VALUES('SUNIL', 'DELHI');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER_2005017 VALUES('RAHUL', 'BARODA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER_2005017 VALUES('MADHURI', 'NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER_2005017 VALUES('PRAMOD', 'NAGPUR');
+
+1 row created.
+
+SQL> SELECT * FROM CUSTOMER_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> INSERT INTO BORROW_2005017 VALUES(201, 'ANIL', 'VRCE', 1000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW_2005017 VALUES(206, 'RAHUL', 'AJNI', 5000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW_2005017 VALUES(311, 'SUNIL', 'DHARAMPETH', 3000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW_2005017 VALUES(321, 'MADHURI', 'ANDHERI', 2000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW_2005017 VALUES(375, 'PRAMOD', 'VIHAR', 8000.00);
+
+1 row created.
+
+SQL> SELECT * FROM BORROW_2005017;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+201   ANIL                 VRCE                       1000                      
+206   RAHUL                AJNI                       5000                      
+311   SUNIL                DHARAMPETH                 3000                      
+321   MADHURI              ANDHERI                    2000                      
+375   PRAMOD               VIHAR                      8000                      
+
+SQL> SPOOL OFF;
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL> SELECT * FROM DEPOSIT_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> SELECT CNAME AS "CUSTOMER NAME", ACTNO AS "ACCOUNT NO" FROM DEPOSIT_2005017;
+
+CUSTOMER NAME        ACCOU                                                      
+-------------------- -----                                                      
+ANIL                 100                                                        
+SUNIL                101                                                        
+RAHUL                102                                                        
+MADHURI              103                                                        
+PRAMOD               104                                                        
+SANDIP               105                                                        
+
+6 rows selected.
+
+SQL> SELECT CNAME FROM CUSTOMER_2005017
+  2  WHERE CITY='NAGPUR';
+
+CNAME                                                                           
+--------------------                                                            
+MADHURI                                                                         
+PRAMOD                                                                          
+
+SQL> SELECT CNAME FROM DEPOSIT_2005017
+  2  WHERE ADATE > '17-NOV-95';
+
+CNAME                                                                           
+--------------------                                                            
+SUNIL                                                                           
+MADHURI                                                                         
+PRAMOD                                                                          
+SANDIP                                                                          
+
+SQL> SELECT ACTNO, CNAME FROM DEPOSIT_2005017
+  2  WHERE ADATE BETWEEEN '01-12-95' AND '01-06-96';
+WHERE ADATE BETWEEEN '01-12-95' AND '01-06-96'
+            *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> WHERE ADATE BETWEEN '01-12-95' AND '01-06-96';
+SP2-0734: unknown command beginning "WHERE ADAT..." - rest of line ignored.
+SQL> SELECT ACTNO, CNAME FROM DEPOSIT_2005017
+  2  WHERE ADATE BETWEEN '01-12-95' AND '01-06-96';
+WHERE ADATE BETWEEN '01-12-95' AND '01-06-96'
+                    *
+ERROR at line 2:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT ACTNO, CNAME FROM DEPOSIT_2005017
+  2  WHERE ADATE BETWEEEN '01-DEC-95' AND '01-JUN-96';
+WHERE ADATE BETWEEEN '01-DEC-95' AND '01-JUN-96'
+            *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT ACTNO, CNAME FROM DEPOSIT_2005017
+  2  WHERE ADATE BETWEEN '01-DEC-95' AND '01-JUN-96';
+
+ACTNO CNAME                                                                     
+----- --------------------                                                      
+101   SUNIL                                                                     
+103   MADHURI                                                                   
+104   PRAMOD                                                                    
+105   SANDIP                                                                    
+
+SQL> SELECT * FROM DEPOSIT_2005017
+  2  WHERE CNAME LIKE 'C%';
+
+no rows selected
+
+SQL> SELECT * DEPOSIT_2005017;
+SELECT * DEPOSIT_2005017
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT * FROM DEPOSIT_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> SELECT * FROM BORROW_2005017
+  2  WHERE CNAME LIKE '_U%'
+  3  ;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+311   SUNIL                DHARAMPETH                 3000                      
+
+SQL> SELECT * FROM DEPOSIT_2005017
+  2  WHERE BNAME IN('CHANDNI', 'MGROAD');
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+
+SQL> SELECT * FROM DEPOSIT_2005017
+  2  WHERE NOT(BNAME='CHANDNI' OR BNAME='MGROAD');
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+SQL> SELECT * FROM BORROW_2005017
+  2  WHERE AMOUNT BETWEEN 2000.00 AND 3000.00;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+311   SUNIL                DHARAMPETH                 3000                      
+321   MADHURI              ANDHERI                    2000                      
+
+SQL> SELECT (AMOUNT*0.1) AS TA, (AMOUNT*0.2) AS DA, (AMOUNT*0.1 + AMOUNT*0.2 + AMOUNT) AS TOTAL FROM BORROW_2005017
+  2  ;
+
+        TA         DA      TOTAL                                                
+---------- ---------- ----------                                                
+       100        200       1300                                                
+       500       1000       6500                                                
+       300        600       3900                                                
+       200        400       2600                                                
+       800       1600      10400                                                
+
+SQL> SELECT CNAME, AMOUNT, (AMOUNT*0.1) AS TA, (AMOUNT*0.2) AS DA, (AMOUNT*0.1 + AMOUNT*0.2 + AMOUNT) AS TOTAL FROM BORROW_2005017;
+
+CNAME                    AMOUNT         TA         DA      TOTAL                
+-------------------- ---------- ---------- ---------- ----------                
+ANIL                       1000        100        200       1300                
+RAHUL                      5000        500       1000       6500                
+SUNIL                      3000        300        600       3900                
+MADHURI                    2000        200        400       2600                
+PRAMOD                     8000        800       1600      10400                
+
+SQL> spool off;
