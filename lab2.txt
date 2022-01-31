@@ -1,0 +1,253 @@
+SQL> SELECT * FROM DEPOSIT_2005017
+  2  WHERE AMOUNT > 1000
+  3  ORDER BY CNAME ASC;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+
+SQL> SELECT * FROM BORROW_2005017
+  2  WHERE CNAME LIKE '__A%' OR CNAME LIKE '__D%'
+  3  ORDER BY CNAME DESC;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+375   PRAMOD               VIHAR                      8000                      
+321   MADHURI              ANDHERI                    2000                      
+
+SQL> SELECT * FROM BORROW_2005017
+  2  WHERE AMOUNT NOT BETWEEN 2000 AND 8000;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+201   ANIL                 VRCE                       1000                      
+
+SQL> SELECT DISTINCT * FROM DEPOSIT_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> SELECT * FROM DEPOSIT_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1000 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> UPDATE DEPOSIT_2005017 SET AMOUNT=(AMOUNT+AMOUNT*0.1)
+  2  WHERE BNAME='VRCE';
+
+1 row updated.
+
+SQL> SELECT * FROM DEPOSIT_2005017 WHERE BNAME='VRCE';
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1100 01-MAR-95            
+
+SQL> UPDATE DEPOSIT_2005017 SET AMOUNT=(AMOUNT+AMOUNT*0.1)
+  2  WHERE BNAME='VRCE' AND CNAME='ANIL';
+
+1 row updated.
+
+SQL> SELECT * FROM DEPOSIT_2005017 WHERE BNAME='VRCE' AND CNAME='ANIL';
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1210 01-MAR-95            
+
+SQL> CREATE TABLE STUDENT_2005017(NAME VARCHAR(20), ROLLNO NUMBER(10), BRANCH VARCHAR(20), CITY VARCHAR(20));
+
+Table created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('VIJAYA', 150, 'CSE', 'CHENNAI');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('SITA', 202, 'ETC', 'KOLKATA');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('RAVI', 300, 'EEE', 'DELHI');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('BASU', 165, 'ETC', 'CHENNAI');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('RASMI', 107, 'ETC', 'RKL');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('KARAN', 111, 'CSE', 'CTC');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT_2005017 VALUES('REKHA', 117, 'BME', 'BBSR');
+
+1 row created.
+
+SQL> SELECT * FROM STUDENT_2005017;
+
+NAME                     ROLLNO BRANCH               CITY                       
+-------------------- ---------- -------------------- --------------------       
+VIJAYA                      150 CSE                  CHENNAI                    
+SITA                        202 ETC                  KOLKATA                    
+RAVI                        300 EEE                  DELHI                      
+BASU                        165 ETC                  CHENNAI                    
+RASMI                       107 ETC                  RKL                        
+KARAN                       111 CSE                  CTC                        
+REKHA                       117 BME                  BBSR                       
+
+7 rows selected.
+
+SQL> SELECT BRANCH, COUNT(*) FROM STUDENT_2005017 GROUP BY BRANCH;
+
+BRANCH                 COUNT(*)                                                 
+-------------------- ----------                                                 
+EEE                           1                                                 
+ETC                           3                                                 
+CSE                           2                                                 
+BME                           1                                                 
+
+SQL> SELECT BRANCH, COUNT(*) FROM STUDENT_2005017
+  2  GROUP BY BRANCH
+  3  HAVING BRANCH LIKE 'E%';
+
+BRANCH                 COUNT(*)                                                 
+-------------------- ----------                                                 
+EEE                           1                                                 
+ETC                           3                                                 
+
+SQL> ALTER TABLE STUDENT_2005017 ADD(MARKS NUMBER(8));
+
+Table altered.
+
+SQL> DESC STUDENT_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ ROLLNO                                             NUMBER(10)
+ BRANCH                                             VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ MARKS                                              NUMBER(8)
+
+SQL> ALTER TABLE STUDENT_2005017 MODIFY(NAME VARCHAR(25));
+
+Table altered.
+
+SQL> DESC STUDENT_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLLNO                                             NUMBER(10)
+ BRANCH                                             VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ MARKS                                              NUMBER(8)
+
+SQL> DELETE FROM STUDENT_2005017 WHERE BRANCH='ETC';
+
+3 rows deleted.
+
+SQL> SELECT * FROM STUDENT_2005017;
+
+NAME                          ROLLNO BRANCH               CITY                  
+------------------------- ---------- -------------------- --------------------  
+     MARKS                                                                      
+----------                                                                      
+VIJAYA                           150 CSE                  CHENNAI               
+                                                                                
+                                                                                
+RAVI                             300 EEE                  DELHI                 
+                                                                                
+                                                                                
+KARAN                            111 CSE                  CTC                   
+                                                                                
+                                                                                
+
+NAME                          ROLLNO BRANCH               CITY                  
+------------------------- ---------- -------------------- --------------------  
+     MARKS                                                                      
+----------                                                                      
+REKHA                            117 BME                  BBSR                  
+                                                                                
+                                                                                
+
+SQL> RENAME STUDENT_2005017 TO STUDINFORMATION_2005017;
+
+Table renamed.
+
+SQL> SELECT * FROM STUDINFORMATION_2005017;
+
+NAME                          ROLLNO BRANCH               CITY                  
+------------------------- ---------- -------------------- --------------------  
+     MARKS                                                                      
+----------                                                                      
+VIJAYA                           150 CSE                  CHENNAI               
+                                                                                
+                                                                                
+RAVI                             300 EEE                  DELHI                 
+                                                                                
+                                                                                
+KARAN                            111 CSE                  CTC                   
+                                                                                
+                                                                                
+
+NAME                          ROLLNO BRANCH               CITY                  
+------------------------- ---------- -------------------- --------------------  
+     MARKS                                                                      
+----------                                                                      
+REKHA                            117 BME                  BBSR                  
+                                                                                
+                                                                                
+
+SQL> TRUNCATE TABLE STUDINFORMATION_2005017;
+
+Table truncated.
+
+SQL> DESC STUDINFORMATION_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLLNO                                             NUMBER(10)
+ BRANCH                                             VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ MARKS                                              NUMBER(8)
+
+SQL> SELECT * FROM STUDINFORMATION_2005017;
+
+no rows selected
+
+SQL> DROP TABLE STUDINFORMATION_2005017;
+
+Table dropped.
+
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT_2005017                                                                 
+BRANCH_2005017                                                                  
+CUSTOMER_2005017                                                                
+BORROW_2005017                                                                  
+
+SQL> spool off;
