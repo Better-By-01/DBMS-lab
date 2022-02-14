@@ -1,0 +1,295 @@
+SQL> SELECT 10*10 FROM DUAL;
+
+     10*10                                                                      
+----------                                                                      
+       100                                                                      
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE                                                                         
+---------                                                                       
+14-FEB-22                                                                       
+
+SQL> SELECT ABS(-20) FROM DUAL;
+
+  ABS(-20)                                                                      
+----------                                                                      
+        20                                                                      
+
+SQL> SELECT POWER(10,10) FROM DUAL;
+
+POWER(10,10)                                                                    
+------------                                                                    
+  1.0000E+10                                                                    
+
+SQL> SELECT SQRT(25) FROM DUAL;
+
+  SQRT(25)                                                                      
+----------                                                                      
+         5                                                                      
+
+SQL> SELECT LOWER('TRIDENT') FROM DUAL;
+
+LOWER('                                                                         
+-------                                                                         
+trident                                                                         
+
+SQL> SELECT UPPER('TRIDENT') FROM DUAL;
+
+UPPER('                                                                         
+-------                                                                         
+TRIDENT                                                                         
+
+SQL> SELECT UPPER('trident') FROM DUAL;
+
+UPPER('                                                                         
+-------                                                                         
+TRIDENT                                                                         
+
+SQL> SELECT INITCAP('ASHUTOSH SINGH PATEL') FROM DUAL;
+
+INITCAP('ASHUTOSHSIN                                                            
+--------------------                                                            
+Ashutosh Singh Patel                                                            
+
+SQL> SELECT LENGTH('ASHUTOSH SINGH PATEL') FROM DUAL;
+
+LENGTH('ASHUTOSHSINGHPATEL')                                                    
+----------------------------                                                    
+                          20                                                    
+
+SQL> SELECT SUBSTR(ORACLE,1,3) FROM DUAL;
+SELECT SUBSTR(ORACLE,1,3) FROM DUAL
+              *
+ERROR at line 1:
+ORA-00904: "ORACLE": invalid identifier 
+
+
+SQL> SELECT SUBSTR('ORACLE',1,3) FROM DUAL;
+
+SUB                                                                             
+---                                                                             
+ORA                                                                             
+
+SQL> SELECT CHARINDEX('C', 'ORACLE') FROM DUAL;
+SELECT CHARINDEX('C', 'ORACLE') FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "CHARINDEX": invalid identifier 
+
+
+SQL> SELECT CHARINDEX('C', 'ORACLE');
+SELECT CHARINDEX('C', 'ORACLE')
+                              *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT CHARINDEX('C', 'ORACLE') AS MATCHPOSITION;
+SELECT CHARINDEX('C', 'ORACLE') AS MATCHPOSITION
+                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT POSITION('C' IN 'ORACLE') FROM DUAL;
+SELECT POSITION('C' IN 'ORACLE') FROM DUAL
+                    *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT POSITION("C" IN "ORACLE") AS MATCHPOSITION FROM DUAL;
+SELECT POSITION("C" IN "ORACLE") AS MATCHPOSITION FROM DUAL
+                    *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT INSTR("ORACLE", "C") FROM DUAL;
+SELECT INSTR("ORACLE", "C") FROM DUAL
+                       *
+ERROR at line 1:
+ORA-00904: "C": invalid identifier 
+
+
+SQL> SELECT INSTR('ORACLE', 'C') "POSITION FOUND" FROM DUAL;
+
+POSITION FOUND                                                                  
+--------------                                                                  
+             4                                                                  
+
+SQL> SELECT LTRIM('  ORACLE',' ') FROM DUAL;
+
+LTRIM(                                                                          
+------                                                                          
+ORACLE                                                                          
+
+SQL> SELECT RTRIM('ORACLE  ',' ') FROM DUAL;
+
+RTRIM(                                                                          
+------                                                                          
+ORACLE                                                                          
+
+SQL> SELECT LPAD('ORACLE',8,'*') FROM DUAL;
+
+LPAD('OR                                                                        
+--------                                                                        
+**ORACLE                                                                        
+
+SQL> SELECT RPAD('ORACLE',8,'*') FROM DUAL;
+
+RPAD('OR                                                                        
+--------                                                                        
+ORACLE**                                                                        
+
+SQL> SELECT EXTRACT(MONTH FROM SYSDATE) FROM DUAL;
+
+EXTRACT(MONTHFROMSYSDATE)                                                       
+-------------------------                                                       
+                        2                                                       
+
+SQL> SELECT MONTHS_BETWEEN('01-01-07', '01-05-07') FROM DUAL;
+SELECT MONTHS_BETWEEN('01-01-07', '01-05-07') FROM DUAL
+                      *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT MONTHS_BETWEEN('01-JAN-07', '01-MAY-07') FROM DUAL;
+
+MONTHS_BETWEEN('01-JAN-07','01-MAY-07')                                         
+---------------------------------------                                         
+                                     -4                                         
+
+SQL> SELECT ROUND(56.23,-1) FROM DUAL;
+
+ROUND(56.23,-1)                                                                 
+---------------                                                                 
+             60                                                                 
+
+SQL> SELECT ROUND(56.23,-2) FROM DUAL;
+
+ROUND(56.23,-2)                                                                 
+---------------                                                                 
+            100                                                                 
+
+SQL> SELECT MOD(1600,300) FROM DUAL;
+
+MOD(1600,300)                                                                   
+-------------                                                                   
+          100                                                                   
+
+SQL> CREATE TABLE NUMBERS_2005017(NUM NUMBER(5,2));
+
+Table created.
+
+SQL> INSERT INTO TABLE NUMBERS_2005017 VALUES(10.5);
+INSERT INTO TABLE NUMBERS_2005017 VALUES(10.5)
+            *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> INSERT INTO NUMBERS_2005017 VALUES(10.5);
+
+1 row created.
+
+SQL> INSERT INTO NUMBERS_2005017 VALUES(35.1);
+
+1 row created.
+
+SQL> INSERT INTO NUMBERS_2005017 VALUES(64.1);
+
+1 row created.
+
+SQL> INSERT INTO NUMBERS_2005017 VALUES(32.5);
+
+1 row created.
+
+SQL> SELECT * FROM NUMBERS_VALUES;
+SELECT * FROM NUMBERS_VALUES
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT * FROM NUMBERS_2005017;
+
+       NUM                                                                      
+----------                                                                      
+      10.5                                                                      
+      35.1                                                                      
+      64.1                                                                      
+      32.5                                                                      
+
+SQL> SELECT MAX(NUM) FROM NUMBERS_2005017;
+
+  MAX(NUM)                                                                      
+----------                                                                      
+      64.1                                                                      
+
+SQL> SELECT MIN(NUM) FROM NUMBERS_2005017;
+
+  MIN(NUM)                                                                      
+----------                                                                      
+      10.5                                                                      
+
+SQL> SELECT LAST_MONTH(SYSDATE) FROM NUMBERS_2005017;
+SELECT LAST_MONTH(SYSDATE) FROM NUMBERS_2005017
+       *
+ERROR at line 1:
+ORA-00904: "LAST_MONTH": invalid identifier 
+
+
+SQL> SELECT (EXTRACT(MONTH FROM SYSDATE)-1) FROM DUAL;
+
+(EXTRACT(MONTHFROMSYSDATE)-1)                                                   
+-----------------------------                                                   
+                            1                                                   
+
+SQL> SELECT (EXTRACT(MONTH FROM SYSDATE)-1) AS LAST_MONTH FROM DUAL;
+
+LAST_MONTH                                                                      
+----------                                                                      
+         1                                                                      
+
+SQL> SELECT ROUNT(23.565,1) FROM DUAL;
+SELECT ROUNT(23.565,1) FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "ROUNT": invalid identifier 
+
+
+SQL> SELECT ROUND(23.565,1) FROM DUAL;
+
+ROUND(23.565,1)                                                                 
+---------------                                                                 
+           23.6                                                                 
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE,'30-06-2002') FROM DUAL;
+SELECT MONTHS_BETWEEN(SYSDATE,'30-06-2002') FROM DUAL
+                              *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE,'30-JUN-2002') FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,'30-JUN-2002')                                           
+-------------------------------------                                           
+                            235.50234                                           
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE,'30-JUN-2022') FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,'30-JUN-2022')                                           
+-------------------------------------                                           
+                           -4.4976583                                           
+
+SQL> SELECT ABS(MONTHS_BETWEEN(SYSDATE,'30-JUN-2022')) FROM DUAL;
+
+ABS(MONTHS_BETWEEN(SYSDATE,'30-JUN-2022'))                                      
+------------------------------------------                                      
+                                4.49765121                                      
+
+SQL> spool off;
