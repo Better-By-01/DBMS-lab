@@ -1,0 +1,8 @@
+select cname from deposit_2005017, branch_2005017 where deposit_2005017.bname = branch_2005017.city;
+
+select DISTINCT b.cname from deposit_2005017 d, borrow_2005017 b where d.amount > 1000 and b.amount > 2000;
+
+select d.cname from deposit_2005017 d, customer_2005017 c where c.city='bombay' and d.bname='nagpur';
+
+select d.bname as "branch city", c.city as "customer city" from deposit_2005017 d, customer_2005017 c where d.cname='pramod';
+

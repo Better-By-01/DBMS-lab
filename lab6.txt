@@ -1,0 +1,364 @@
+SQL> select * from deposit_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1210 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> select * from customer_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> select d.cname c.city from deposit_2005017 d, customer_2005017 c where d.city = c.city
+  2  ;
+select d.cname c.city from deposit_2005017 d, customer_2005017 c where d.city = c.city
+                *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select d.cname, customer_2005017.city from deposit_2005017, customer_2005017 where d.city = customer_2005017.city;
+select d.cname, customer_2005017.city from deposit_2005017, customer_2005017 where d.city = customer_2005017.city
+                                                                                   *
+ERROR at line 1:
+ORA-00904: "D"."CITY": invalid identifier 
+
+
+SQL> select d.cname, customer_2005017.city from deposit_2005017 d, customer_2005017 where d.city = customer_2005017.city;
+select d.cname, customer_2005017.city from deposit_2005017 d, customer_2005017 where d.city = customer_2005017.city
+                                                                                     *
+ERROR at line 1:
+ORA-00904: "D"."CITY": invalid identifier 
+
+
+SQL> cl scr;
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT_2005017                                                                 
+BRANCH_2005017                                                                  
+CUSTOMER_2005017                                                                
+BORROW_2005017                                                                  
+PRODUCT_2005017                                                                 
+CLIENT_2005017                                                                  
+EMPLOYEE_2005017                                                                
+CUSTOMER_017                                                                    
+SALESORDERDETAILS_2005017                                                       
+SALESORDER_2005017                                                              
+NUMBERS_2005017                                                                 
+
+11 rows selected.
+
+SQL> select * from branch_2005017;
+
+BNAME                CITY                                                       
+-------------------- --------------------                                       
+VRCE                 NAGPUR                                                     
+AJNI                 NAGPUR                                                     
+KAROLBAGH            DELHI                                                      
+CHANDNI              DELHI                                                      
+MGROAD               BANGALORE                                                  
+
+SQL> select cname from deposit_2005017, branch_2005017 where deposit_2005017.bname = branch_2005017.city;
+
+no rows selected
+
+SQL> cl scr;
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT_2005017                                                                 
+BRANCH_2005017                                                                  
+CUSTOMER_2005017                                                                
+BORROW_2005017                                                                  
+PRODUCT_2005017                                                                 
+CLIENT_2005017                                                                  
+EMPLOYEE_2005017                                                                
+CUSTOMER_017                                                                    
+SALESORDERDETAILS_2005017                                                       
+SALESORDER_2005017                                                              
+NUMBERS_2005017                                                                 
+
+11 rows selected.
+
+SQL> select * from deposit_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1210 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> select * from branch_2005017;
+
+BNAME                CITY                                                       
+-------------------- --------------------                                       
+VRCE                 NAGPUR                                                     
+AJNI                 NAGPUR                                                     
+KAROLBAGH            DELHI                                                      
+CHANDNI              DELHI                                                      
+MGROAD               BANGALORE                                                  
+
+SQL> select * from customer_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> select * from borrow_2005017;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+201   ANIL                 VRCE                       1000                      
+206   RAHUL                AJNI                       5000                      
+311   SUNIL                DHARAMPETH                 3000                      
+321   MADHURI              ANDHERI                    2000                      
+375   PRAMOD               VIHAR                      8000                      
+
+SQL> select * from product_2005017;
+
+no rows selected
+
+SQL> select * from client_2005017;
+
+no rows selected
+
+SQL> select * from employee_2005017;
+
+no rows selected
+
+SQL> select * from customer_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> select * from salesorderdetails_2005017;
+
+no rows selected
+
+SQL> select * from salesorder_2005017;
+
+no rows selected
+
+SQL> desc borrow_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOANNO                                             VARCHAR2(5)
+ CNAME                                              VARCHAR2(20)
+ BNAME                                              VARCHAR2(20)
+ AMOUNT                                             NUMBER(8,2)
+
+SQL> select * from borrow_2005017;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+201   ANIL                 VRCE                       1000                      
+206   RAHUL                AJNI                       5000                      
+311   SUNIL                DHARAMPETH                 3000                      
+321   MADHURI              ANDHERI                    2000                      
+375   PRAMOD               VIHAR                      8000                      
+
+SQL> select cname from deposit_2005017 d, borrow_2005017 b where d.amount > 1000 and b.amount > 2000;
+select cname from deposit_2005017 d, borrow_2005017 b where d.amount > 1000 and b.amount > 2000
+       *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> select b.cname from deposit_2005017 d, borrow_2005017 b where d.amount > 1000 and b.amount > 2000;
+
+CNAME                                                                           
+--------------------                                                            
+RAHUL                                                                           
+RAHUL                                                                           
+RAHUL                                                                           
+RAHUL                                                                           
+RAHUL                                                                           
+RAHUL                                                                           
+SUNIL                                                                           
+SUNIL                                                                           
+SUNIL                                                                           
+SUNIL                                                                           
+SUNIL                                                                           
+
+CNAME                                                                           
+--------------------                                                            
+SUNIL                                                                           
+PRAMOD                                                                          
+PRAMOD                                                                          
+PRAMOD                                                                          
+PRAMOD                                                                          
+PRAMOD                                                                          
+PRAMOD                                                                          
+
+18 rows selected.
+
+SQL> select DISTINCT b.cname from deposit_2005017 d, borrow_2005017 b where d.amount > 1000 and b.amount > 2000;
+
+CNAME                                                                           
+--------------------                                                            
+RAHUL                                                                           
+PRAMOD                                                                          
+SUNIL                                                                           
+
+SQL> select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.city = "nagpur";
+select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.city = "nagpur"
+                                                                                                        *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.bname = "nagpur";
+select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.bname = "nagpur"
+                                                                                                         *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> desc branch_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> desc customer_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.bname = "nagpur";
+select distinct c.cname from customer_2005017 c, deposit_2005017 d where c.city = "bombay" and d.bname = "nagpur"
+                                                                                                         *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> select distinct c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.bname = "nagpur"
+  2  ;
+select distinct c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.bname = "nagpur"
+                                                                                                        *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> select c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.bname = "nagpur";
+select c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.bname = "nagpur"
+                                                                                               *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> select c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.city = "nagpur";
+select c.cname from customer_2005017 c, branch_2005017 b where c.city = "bombay" and b.city = "nagpur"
+                                                                                              *
+ERROR at line 1:
+ORA-00904: "nagpur": invalid identifier 
+
+
+SQL> desc customer_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> desc branch_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BNAME                                              VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> select cname from deposit_2005017 d, customer_2005017 c where c.city='bombay' and d.bname='nagpur';
+select cname from deposit_2005017 d, customer_2005017 c where c.city='bombay' and d.bname='nagpur'
+       *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> select d.cname from deposit_2005017 d, customer_2005017 c where c.city='bombay' and d.bname='nagpur';
+
+no rows selected
+
+SQL> desc deposit_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ACTNO                                              VARCHAR2(5)
+ CNAME                                              VARCHAR2(20)
+ BNAME                                              VARCHAR2(20)
+ AMOUNT                                             NUMBER(8,2)
+ ADATE                                              DATE
+
+SQL> select d.bname as "branch city", c.city as "customer city" from deposit_2005017 d, customer_2005017 where d.cname='pramod';
+select d.bname as "branch city", c.city as "customer city" from deposit_2005017 d, customer_2005017 where d.cname='pramod'
+                                 *
+ERROR at line 1:
+ORA-00904: "C"."CITY": invalid identifier 
+
+
+SQL> select d.bname as "branch city", c.city as "customer city" from deposit_2005017 d, customer_2005017 c where d.cname='pramod';
+
+no rows selected
+
+SQL> select * from borrow_2005017;
+
+LOANN CNAME                BNAME                    AMOUNT                      
+----- -------------------- -------------------- ----------                      
+201   ANIL                 VRCE                       1000                      
+206   RAHUL                AJNI                       5000                      
+311   SUNIL                DHARAMPETH                 3000                      
+321   MADHURI              ANDHERI                    2000                      
+375   PRAMOD               VIHAR                      8000                      
+
+SQL> desc borrow_2005017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOANNO                                             VARCHAR2(5)
+ CNAME                                              VARCHAR2(20)
+ BNAME                                              VARCHAR2(20)
+ AMOUNT                                             NUMBER(8,2)
+
+SQL> select b.loanno, b.amount, d.actno, d.amount from deposit_2005017 d, borrow_2005017 b, customer_2005017 c where c.city = 'nagpur';
+
+no rows selected
+
+SQL> select * from customer_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> spool off;

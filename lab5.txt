@@ -1,0 +1,58 @@
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT_2005017                                                                 
+BRANCH_2005017                                                                  
+CUSTOMER_2005017                                                                
+BORROW_2005017                                                                  
+PRODUCT_2005017                                                                 
+CLIENT_2005017                                                                  
+EMPLOYEE_2005017                                                                
+CUSTOMER_017                                                                    
+SALESORDERDETAILS_2005017                                                       
+SALESORDER_2005017                                                              
+NUMBERS_2005017                                                                 
+
+11 rows selected.
+
+SQL> grant select, insert on deposit_2005017 to test with grant options;
+grant select, insert on deposit_2005017 to test with grant options
+                                                           *
+ERROR at line 1:
+ORA-00994: missing OPTION keyword 
+
+
+SQL> grant select, insert on deposit_2005017 to test with grant option;
+
+Grant succeeded.
+
+SQL> revoke insert on deposit_2005017 from test;
+
+Revoke succeeded.
+
+SQL> revoke all on deposit_2005017 from test;
+
+Revoke succeeded.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> edit
+Wrote file afiedt.buf
+
+  1* rollback
+SQL> save ashutosh.sql
+Created file ashutosh.sql
+SQL> get ashutosh.sql
+  1* rollback
+SQL> start ashutosh.sql
+
+Rollback complete.
+
+SQL> edit
+Wrote file afiedt.buf
+
+  1* rollback
+SQL> exit
