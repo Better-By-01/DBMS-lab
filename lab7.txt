@@ -1,0 +1,91 @@
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT_2005017                                                                 
+BRANCH_2005017                                                                  
+CUSTOMER_2005017                                                                
+BORROW_2005017                                                                  
+PRODUCT_2005017                                                                 
+CLIENT_2005017                                                                  
+CUSTOMER_017                                                                    
+SALESORDERDETAILS_2005017                                                       
+SALESORDER_2005017                                                              
+NUMBERS_2005017                                                                 
+EMPLOYEE_2005017                                                                
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+EMPLOYEE1_2005017                                                               
+
+12 rows selected.
+
+SQL> select * from deposit_2005017;
+
+ACTNO CNAME                BNAME                    AMOUNT ADATE                
+----- -------------------- -------------------- ---------- ---------            
+100   ANIL                 VRCE                       1210 01-MAR-95            
+101   SUNIL                AJNI                       5000 04-JAN-96            
+102   RAHUL                KAROLBAGH                  3500 17-NOV-95            
+103   MADHURI              CHANDNI                    1200 17-DEC-95            
+104   PRAMOD               MGROAD                     3000 27-MAR-96            
+105   SANDIP               KAROLBAGH                  2000 31-MAR-96            
+
+6 rows selected.
+
+SQL> select * from customer_2005017;
+
+CNAME                CITY                                                       
+-------------------- --------------------                                       
+ANIL                 CALCUTTA                                                   
+SUNIL                DELHI                                                      
+RAHUL                BARODA                                                     
+MADHURI              NAGPUR                                                     
+PRAMOD               NAGPUR                                                     
+
+SQL> select * from branch_2005017;
+
+BNAME                CITY                                                       
+-------------------- --------------------                                       
+VRCE                 NAGPUR                                                     
+AJNI                 NAGPUR                                                     
+KAROLBAGH            DELHI                                                      
+CHANDNI              DELHI                                                      
+MGROAD               BANGALORE                                                  
+
+SQL> SELECT CNAME FROM DEPOSIT_2005017 WHERE BNAME=(SELECT BNAME FROM DEPOSIT_2005017 WHERE CNAME='SUNIL');
+
+CNAME                                                                           
+--------------------                                                            
+SUNIL                                                                           
+
+SQL> SELECT ACTNO, AMOUNT FROM DEPOSIT_2005017 WHERE CNAME IN (SELECT CNAME FROM CUSTOMER_2005017 WHERE CITY='NAGPUR');
+
+ACTNO     AMOUNT                                                                
+----- ----------                                                                
+103         1200                                                                
+104         3000                                                                
+
+SQL> SELECT CITY FROM CUSTOMER_2005017 WHERE CNAME IN (SELECT CNAME FROM DEPOSIT_2005017 WHERE BNAME='KAROLBAGH');
+
+CITY                                                                            
+--------------------                                                            
+BARODA                                                                          
+
+SQL> SELECT CITY FROM BRANCH_2005017 WHERE BNAME IN (SELECT BNAME FROM DEPOSIT_2005017 WHERE CNAME IN ('ANIL', 'SUNIL'));
+
+CITY                                                                            
+--------------------                                                            
+NAGPUR                                                                          
+NAGPUR                                                                          
+
+SQL> SELECT CNAME, AMOUNT FROM DEPOSIT_2005017 WHERE CNAME IN
+  2  (SELECT CNAME FROM CUSTOMER_2005017 WHERE CITY IN
+  3  (SELECT CITY FROM CUSTOMER_2005017 WHERE CNAME='ANIL' OR CNAME='SUNIL'));
+
+CNAME                    AMOUNT                                                 
+-------------------- ----------                                                 
+ANIL                       1210                                                 
+SUNIL                      5000                                                 
+
+SQL> spool off;

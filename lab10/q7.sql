@@ -1,0 +1,25 @@
+DECLARE
+	N NUMBER;
+	s NUMBER := 0;
+	TEMP NUMBER;
+	i NUMBER;
+BEGIN
+	N := &N;
+	TEMP := TRUNC(N/2);
+	i := 1;
+	WHILE (i <= TEMP)
+	LOOP
+		IF MOD(N,i)=0 THEN
+			s := s + i;
+		END IF;
+		i := i+1;
+	END LOOP;
+	IF s=N THEN
+		DBMS_OUTPUT.PUT_LINE('PERFECT NUMBER');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('NOT A PERFECT NUMBER');
+	END IF;
+END;
+/
+	
+

@@ -1,0 +1,551 @@
+SQL> cl scr;
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+CUST_017                                                                        
+PROD_017                                                                        
+STATE_NAME_017                                                                  
+STUDENT_017                                                                     
+BOOK_017                                                                        
+
+SQL> CREATE TABLE EMP_017(EMPNO NUMBER(4), ENAME VARCHAR2(20), JOB VARCHAR2(20), MGR NUMBER(4), HIREDATE DATE, SAL NUMBER(10), COMM NUMBER(10), DEPTNO NUMBER (2));
+
+Table created.
+
+SQL> DESC EMP_017;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(20)
+ JOB                                                VARCHAR2(20)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(10)
+ COMM                                               NUMBER(10)
+ DEPTNO                                             NUMBER(2)
+
+SQL> INSERT INTO EMP_017 VALUES(7369,
+  2  'SMITH', 'CLERK', 7902, '17-DEC-80', 800, 20, NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7499, 'ALLEN', 'SALESMAN', 7698, '20-FEB-81', 1600, 300, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7521, 'WARD', 'SALESMAN', 7698, '22-FEB-81', 1250, 500, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7566, 'JONES', 'MANAGER', 7839, '02-APR-81', 2975, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7654, 'MARTIN', 'SALESMAN', 7698, '28-SEP-81', 1250, 1400, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7698, 'BLAKE', 'MANAGER', 7869, '01-MAY-81', 2850, NULL, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7782, 'CLARK', 'MANAGER', 7839, '09-JUN-81', 2450, NULL, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7788, 'SCOTT', 'ANALYST', 7566, '09-DEC-82', 3000, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7839, 'KING', 'PRESIDENT', NULL, '17-NOV-81', 5000, NULL, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7844, 'TURNER', 'SALESMAN', 7698, '08-SEP-81', 1500, 0, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7876, 'ADAMS', 'CLERK', 7788, '12-JAN-83', 1100, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7900, 'JAMES', 'CLERK', 7698, '03-DEC-81', 950, NULL, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7902, 'FORD', 'ANALYST', 7566, '03-DEC-81', 3000, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP_017 VALUES(7934, 'MILLER', 'CLERK', 7782, '23-JAN-82', 1300, NULL, 10);
+
+1 row created.
+
+SQL> SELECT * FROM EMP_017;
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7369 SMITH                CLERK                      7902 17-DEC-80       
+       800         20                                                           
+                                                                                
+      7499 ALLEN                SALESMAN                   7698 20-FEB-81       
+      1600        300         30                                                
+                                                                                
+      7521 WARD                 SALESMAN                   7698 22-FEB-81       
+      1250        500         30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7566 JONES                MANAGER                    7839 02-APR-81       
+      2975                    20                                                
+                                                                                
+      7654 MARTIN               SALESMAN                   7698 28-SEP-81       
+      1250       1400         30                                                
+                                                                                
+      7698 BLAKE                MANAGER                    7869 01-MAY-81       
+      2850                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7782 CLARK                MANAGER                    7839 09-JUN-81       
+      2450                    10                                                
+                                                                                
+      7788 SCOTT                ANALYST                    7566 09-DEC-82       
+      3000                    20                                                
+                                                                                
+      7839 KING                 PRESIDENT                       17-NOV-81       
+      5000                    10                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7844 TURNER               SALESMAN                   7698 08-SEP-81       
+      1500          0         30                                                
+                                                                                
+      7876 ADAMS                CLERK                      7788 12-JAN-83       
+      1100                    20                                                
+                                                                                
+      7900 JAMES                CLERK                      7698 03-DEC-81       
+       950                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7902 FORD                 ANALYST                    7566 03-DEC-81       
+      3000                    20                                                
+                                                                                
+      7934 MILLER               CLERK                      7782 23-JAN-82       
+      1300                    10                                                
+                                                                                
+
+14 rows selected.
+
+SQL> SELECT COUNT(*) FROM EMP_017;
+
+  COUNT(*)                                                                      
+----------                                                                      
+        14                                                                      
+
+SQL> CREATE TABLE DEPT_017(DEPTNO NUMBER(2), DNAME VARCHAR2(20), LOC VARCHAR2(20));
+
+Table created.
+
+SQL> INSERT INTO DEPT_017 VALUES(10, 'ACCOUNTING', 'NEW YORK');
+
+1 row created.
+
+SQL> INSERT INTO DEPT_017 VALUES(20, 'RESEARCH', 'DALLAS');
+
+1 row created.
+
+SQL> INSERT INTO DEPT_017 VALUES(30, 'SALES', 'CHICAGO');
+
+1 row created.
+
+SQL> INSERT INTO DEPT_017 VALUES(40, 'OPERATIONS', 'BOSTON');
+
+1 row created.
+
+SQL> SELECT * FROM DEPT_017;
+
+    DEPTNO DNAME                LOC                                             
+---------- -------------------- --------------------                            
+        10 ACCOUNTING           NEW YORK                                        
+        20 RESEARCH             DALLAS                                          
+        30 SALES                CHICAGO                                         
+        40 OPERATIONS           BOSTON                                          
+
+SQL> CREATE TABLE SALGRADE_017(GRADE NUMBER(1), LOSAL NUMBER(4), HISAL NUMBER(4));
+
+Table created.
+
+SQL> INSERT INTO SALGRADE_017 VALUES(1, 700, 1200);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE_017 VALUES(2, 1201, 1400);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE_017 VALUES(3, 1401, 2000);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE_017 VALUES(4, 2001, 3000);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE_017 VALUES(5, 3001, 9999);
+
+1 row created.
+
+SQL> SELECT * FROM SALGRADE_017;
+
+     GRADE      LOSAL      HISAL                                                
+---------- ---------- ----------                                                
+         1        700       1200                                                
+         2       1201       1400                                                
+         3       1401       2000                                                
+         4       2001       3000                                                
+         5       3001       9999                                                
+
+SQL> SELECT COUNT(*) FROM DEPT_017
+  2  GROUP BY DEPTNO;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         1                                                                      
+         1                                                                      
+         1                                                                      
+         1                                                                      
+
+SQL> SELECT COUNT(*), DEPTNO FROM DEPT_017 GROUP BY DEPTNO;
+
+  COUNT(*)     DEPTNO                                                           
+---------- ----------                                                           
+         1         30                                                           
+         1         20                                                           
+         1         40                                                           
+         1         10                                                           
+
+SQL> SELECT COUNT(EMPNO), DEPTNO FROM DEPT_017 GROUP BY DEPTNO;
+SELECT COUNT(EMPNO), DEPTNO FROM DEPT_017 GROUP BY DEPTNO
+             *
+ERROR at line 1:
+ORA-00904: "EMPNO": invalid identifier 
+
+
+SQL> SELECT ENAME, DEPTNO FROM DEPT_017 GROUP BY DEPTNO;
+SELECT ENAME, DEPTNO FROM DEPT_017 GROUP BY DEPTNO
+       *
+ERROR at line 1:
+ORA-00904: "ENAME": invalid identifier 
+
+
+SQL> SELECT COUNT(EMPNO), DEPTNO FROM EMP_017 GROUP BY DEPTNO;
+
+COUNT(EMPNO)     DEPTNO                                                         
+------------ ----------                                                         
+           1                                                                    
+           6         30                                                         
+           4         20                                                         
+           3         10                                                         
+
+SQL> SELECT COUNT(EMPNO), DEPTNO FROM EMP_017 GROUP BY DEPTNO ORDER BY ASC;
+SELECT COUNT(EMPNO), DEPTNO FROM EMP_017 GROUP BY DEPTNO ORDER BY ASC
+                                                                  *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT COUNT(EMPNO), DEPTNO FROM EMP_017 GROUP BY DEPTNO ASC;
+SELECT COUNT(EMPNO), DEPTNO FROM EMP_017 GROUP BY DEPTNO ASC
+                                                         *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL >= S.LOSAL AND E.SAL <= HISAL
+  3  ORDER BY E.SAL;
+SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL , E.SAL FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL >= S.LOSAL AND E.SAL <= HISAL
+  3  ORDER BY E.SAL;
+SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL , E.SAL FROM EMP_017 E, SALGRADE_017 S
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT E.SAL, S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL >= S.LOSAL AND E.SAL <= HISAL
+  3  ORDER BY E.SAL;
+SELECT E.SAL, S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN 700 AND 1200
+  3  ;
+SELECT S.GRADE, COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;
+
+COUNT(E.EMPNO)                                                                  
+--------------                                                                  
+            14                                                                  
+
+SQL> SELECT COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  ORDER BY S.GRADE;
+
+COUNT(E.EMPNO)                                                                  
+--------------                                                                  
+            14                                                                  
+
+SQL> SELECT COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+
+COUNT(E.EMPNO)                                                                  
+--------------                                                                  
+             3                                                                  
+             3                                                                  
+             5                                                                  
+             1                                                                  
+             2                                                                  
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO) S.HISAL FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+SELECT S.GRADE, COUNT(E.EMPNO) S.HISAL FROM EMP_017 E, SALGRADE_017 S
+                                *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+SELECT S.GRADE, COUNT(E.EMPNO), S.HISAL FROM EMP_017 E, SALGRADE_017 S
+                                *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT S.GRADE, S.HISAL, COUNT(E.EMPNO), FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+SELECT S.GRADE, S.HISAL, COUNT(E.EMPNO), FROM EMP_017 E, SALGRADE_017 S
+                                         *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT S.GRADE, S.HISAL, COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+SELECT S.GRADE, S.HISAL, COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+                *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+
+     GRADE COUNT(E.EMPNO)                                                       
+---------- --------------                                                       
+         1              3                                                       
+         2              3                                                       
+         4              5                                                       
+         5              1                                                       
+         3              2                                                       
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO), MAX(E.EMPNO) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+
+     GRADE COUNT(E.EMPNO) MAX(E.EMPNO)                                          
+---------- -------------- ------------                                          
+         1              3         7900                                          
+         2              3         7934                                          
+         4              5         7902                                          
+         5              1         7839                                          
+         3              2         7844                                          
+
+SQL> SELECT S.GRADE, COUNT(E.EMPNO), MAX(E.SAL) FROM EMP_017 E, SALGRADE_017 S
+  2  WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL
+  3  GROUP BY S.GRADE;
+
+     GRADE COUNT(E.EMPNO) MAX(E.SAL)                                            
+---------- -------------- ----------                                            
+         1              3       1100                                            
+         2              3       1300                                            
+         4              5       3000                                            
+         5              1       5000                                            
+         3              2       1600                                            
+
+SQL> SELECT D.DNAME, S.GRADE, COUNT(E.EMPNO) FROM DEPT_017 D, SALGRADE_017 S, EMP_017 D
+  2  WHERE ;
+WHERE 
+     *
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> cl scr;
+
+SQL> SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES');
+
+ENAME                                                                           
+--------------------                                                            
+JONES                                                                           
+CLARK                                                                           
+
+SQL> SELECT MGR FROM EMP_017 WHERE ENAME='JONES';
+
+       MGR                                                                      
+----------                                                                      
+      7839                                                                      
+
+SQL> SELECT * FROM EMP_017;
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7369 SMITH                CLERK                      7902 17-DEC-80       
+       800         20                                                           
+                                                                                
+      7499 ALLEN                SALESMAN                   7698 20-FEB-81       
+      1600        300         30                                                
+                                                                                
+      7521 WARD                 SALESMAN                   7698 22-FEB-81       
+      1250        500         30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7566 JONES                MANAGER                    7839 02-APR-81       
+      2975                    20                                                
+                                                                                
+      7654 MARTIN               SALESMAN                   7698 28-SEP-81       
+      1250       1400         30                                                
+                                                                                
+      7698 BLAKE                MANAGER                    7869 01-MAY-81       
+      2850                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7782 CLARK                MANAGER                    7839 09-JUN-81       
+      2450                    10                                                
+                                                                                
+      7788 SCOTT                ANALYST                    7566 09-DEC-82       
+      3000                    20                                                
+                                                                                
+      7839 KING                 PRESIDENT                       17-NOV-81       
+      5000                    10                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7844 TURNER               SALESMAN                   7698 08-SEP-81       
+      1500          0         30                                                
+                                                                                
+      7876 ADAMS                CLERK                      7788 12-JAN-83       
+      1100                    20                                                
+                                                                                
+      7900 JAMES                CLERK                      7698 03-DEC-81       
+       950                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                         MGR HIREDATE        
+---------- -------------------- -------------------- ---------- ---------       
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7902 FORD                 ANALYST                    7566 03-DEC-81       
+      3000                    20                                                
+                                                                                
+      7934 MILLER               CLERK                      7782 23-JAN-82       
+      1300                    10                                                
+                                                                                
+
+14 rows selected.
+
+SQL> UPDATE TABLE EMP_017 SET MGR=7839 WHERE ENAME='BLAKE';
+UPDATE TABLE EMP_017 SET MGR=7839 WHERE ENAME='BLAKE'
+       *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> UPDATE EMP_017 SET MGR=7839 WHERE ENAME='BLAKE';
+
+1 row updated.
+
+SQL> SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES');
+
+ENAME                                                                           
+--------------------                                                            
+JONES                                                                           
+BLAKE                                                                           
+CLARK                                                                           
+
+SQL> SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES') AND ENAME IS NOT 'JONES';
+SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES') AND ENAME IS NOT 'JONES'
+                                                                                                   *
+ERROR at line 1:
+ORA-00908: missing NULL keyword 
+
+
+SQL> SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES') AND ENAME NOT 'JONES';
+SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES') AND ENAME NOT 'JONES'
+                                                                                                *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT ENAME FROM EMP_017 WHERE MGR=(SELECT MGR FROM EMP_017 WHERE ENAME='JONES') AND ENAME !='JONES';
+
+ENAME                                                                           
+--------------------                                                            
+BLAKE                                                                           
+CLARK                                                                           
+
+SQL> spool off;
